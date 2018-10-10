@@ -1,6 +1,8 @@
 from mongoengine.queryset import transform, Q
 from rest_framework import fields
+from rest_framework.fields import DateField
 
+from drf_mongo_filters.fields import DateEndField
 from .fields import  DateTime000Field, ListField, RangeField, GeoPointField,  ObjectIdField
 
 COMPARISION_OPERATORS = ('ne', 'gt', 'gte', 'lt', 'lte')
@@ -114,6 +116,14 @@ class FloatFilter(Filter):
 
 class DateTimeFilter(Filter):
     field_class = DateTime000Field
+
+
+class DateFilter(Filter):
+    field_class = DateField
+
+
+class DateEndFilter(Filter):
+    field_class = DateEndField
 
 
 class ObjectIdFilter(Filter):
